@@ -1,3 +1,16 @@
+:root{
+  --skillColorRGB: 255, 0, 0;
+  --skillScore: 5.0vh;
+
+  /* Bright Colors Of Spring Color Scheme */
+  --colorSchema1: 255, 186, 66; /* Pastel Orange */
+  --colorSchema2: 217, 59, 103; /* Cerise */
+  --colorSchema3: 92, 84, 201; /* Iris */
+  --colorSchema4: 37, 152, 176; /* Cyan Cornflower Blue */
+  --colorSchema5: 59, 212, 176; /* Eucalyptus */
+  --colorSchema6: 172, 245, 115; /* Inchworm */
+}
+
 body {
   display: flex;
   flex-direction: row;
@@ -119,6 +132,11 @@ body {
 .sticky {
   position: sticky;
   z-index: 3;
+}
+.skillSticky{
+  border-radius: 15px;
+  border: 1px solid rgba(var(--skillColorRGB));
+  background-image: linear-gradient(90deg, rgba(var(--skillColorRGB), 0.4) var(--skillScore), calc(var(--skillScore) + 0.2vh), rgba(var(--skillColorRGB), 0.1) 100%);
 }
 .dateSticky {
   display: block;
