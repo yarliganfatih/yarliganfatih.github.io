@@ -21,5 +21,28 @@ $(".mainParent").scroll(function () {
             lastAnimated[index] = 0;
         }
     });
-    console.log(lastScrolled);
+    //console.log(lastScrolled);
+});
+
+
+// Sync Scrolling
+
+// for desktop
+ $('.nav').bind('mousewheel DOMMouseScroll', function(e){
+    console.log(e.originalEvent.wheelDeltaY);
+    $(".mainParent").scrollTop($(".mainParent").scrollTop() - e.originalEvent.wheelDeltaY);
+});
+
+// for mobile
+var lastY;
+var currentY;
+$(".nav").on('touchstart', function (e){
+    var currentY = e.changedTouches[0].clientY;
+    lastY = currentY;
+});
+$(".nav").on('touchmove', function (e){
+    var currentY = e.changedTouches[0].clientY;
+    delta = currentY - lastY;
+    $(".mainParent").scrollTop($(".mainParent").scrollTop() + delta*-100);
+    lastY = currentY;
 });
