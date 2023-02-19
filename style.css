@@ -1,6 +1,6 @@
-:root{
+:root {
   --skillColorRGB: 255, 0, 0;
-  --skillScore: 5.0vh;
+  --skillScore: 5vh;
 
   /* Bright Colors Of Spring Color Scheme */
   --colorSchema1: 255, 186, 66; /* Pastel Orange */
@@ -30,12 +30,23 @@ body {
 .nav {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: 300px;
   background-color: black;
-  border-bottom: 2px solid gray;
+  border-bottom: 5px solid rgb(34, 34, 68);
   z-index: 2;
+  border-radius: 0 0 30px 30px;
+  background: linear-gradient(rgb(34, 34, 68), 25%, black 50%);
+  box-shadow: 0 2px 2px -2px rgb(34 34 68);
+}
+.navBottomBorder {
+  position: fixed;
+  top: 295px;
+  background-color: rgb(34, 34, 68);
+  height: 5px;
+  width: 1140px;
+  z-index: 9;
+  box-shadow: 0 5px 20px 2px rgb(34 34 68);
 }
 .fixedBio {
   height: 84px;
@@ -133,10 +144,15 @@ body {
   position: sticky;
   z-index: 3;
 }
-.skillSticky{
+.skillSticky {
   border-radius: 15px;
   border: 1px solid rgba(var(--skillColorRGB));
-  background-image: linear-gradient(90deg, rgba(var(--skillColorRGB), 0.4) var(--skillScore), calc(var(--skillScore) + 0.2vh), rgba(var(--skillColorRGB), 0.1) 100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(var(--skillColorRGB), 0.4) var(--skillScore),
+    calc(var(--skillScore) + 0.2vh),
+    rgba(var(--skillColorRGB), 0.1) 100%
+  );
 }
 .dateSticky {
   display: block;
@@ -207,5 +223,54 @@ body {
   }
   .row04 {
     top: 105px;
+  }
+}
+
+:root {
+  --containerSizing1: 540px;
+  --containerSizing2: 720px;
+  --containerSizing3: 960px;
+  --containerSizing4: 1140px;
+}
+
+@media (max-width: 576px) {
+  .navResponsive {
+    max-width: var(--containerSizing1);
+  }
+  .navBottomBorder {
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media (min-width: 576px) {
+  .navResponsive {
+    max-width: calc(var(--containerSizing1) + 60px);
+  }
+  .navBottomBorder {
+    max-width: var(--containerSizing1);
+  }
+}
+@media (min-width: 768px) {
+  .navResponsive {
+    max-width: calc(var(--containerSizing2) + 60px);
+  }
+  .navBottomBorder {
+    max-width: var(--containerSizing2);
+  }
+}
+@media (min-width: 992px) {
+  .navResponsive {
+    max-width: calc(var(--containerSizing3) + 60px);
+  }
+  .navBottomBorder {
+    max-width: var(--containerSizing3);
+  }
+}
+@media (min-width: 1200px) {
+  .navResponsive {
+    max-width: calc(var(--containerSizing4) + 60px);
+  }
+  .navBottomBorder {
+    max-width: var(--containerSizing4);
   }
 }
