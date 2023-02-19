@@ -274,3 +274,44 @@ body {
     max-width: var(--containerSizing4);
   }
 }
+
+/*
+@keyframes smoothbounceball {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 16px, 0);
+  }
+}
+*/
+
+@keyframes smoothBounce {
+  0% {
+    transform: translate3d(0, 0, 0);
+    box-shadow: none;
+  }
+  33% {
+    transform: translate3d(0, -8px, 0);
+  }
+  99% {
+    transform: translate3d(0, 8px, 0);
+  }
+}
+.animateBounce {
+  animation: smoothBounce 0.3s 2;
+  animation-direction: alternate;
+}
+
+@keyframes insetShadowBottom {
+  0% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: inset 0 -10px 10px -10px #ffffff;
+  }
+}
+.animateShadowBottom {
+  animation: insetShadowBottom 0.3s 2;
+  animation-direction: alternate;
+}
