@@ -1,5 +1,5 @@
 :root {
-  --skillColorRGB: 255, 0, 0;
+  --skillColorRGB: 92, 84, 201;
   --skillScore: 5vh;
 
   /* Bright Colors Of Spring Color Scheme */
@@ -26,6 +26,18 @@ body {
     rgb(16, 16, 16)
   );
   color: white;
+}
+.footer {
+  transition: height 1s;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  border-top: 5px solid rgb(34, 34, 68);
+  z-index: 10;
+  border-radius: 30px 30px 0 0;
+  background: linear-gradient(to top, rgb(34, 34, 68), 25%, black 50%);
 }
 .nav {
   position: fixed;
@@ -132,6 +144,24 @@ body {
   font-size: smaller;
   border-bottom: 1px solid gray;
 }
+.experienceContent .contentTag::before {
+  content: "Experience";
+}
+.educationContent .contentTag::before {
+  content: "Education";
+}
+.hobbyContent .contentTag::before {
+  content: "Hobby";
+}
+.experienceContent .contentTag {
+  --skillColorRGB: var(--colorSchema3);
+}
+.educationContent .contentTag {
+  --skillColorRGB: var(--colorSchema3);
+}
+.hobbyContent .contentTag {
+  --skillColorRGB: var(--colorSchema3);
+}
 .preSticky {
   display: block;
   width: 84px;
@@ -145,7 +175,9 @@ body {
   z-index: 3;
 }
 .skillSticky {
+  max-height: 30px;
   border-radius: 15px;
+  color: rgba(var(--skillColorRGB)) !important;
   border: 1px solid rgba(var(--skillColorRGB));
   background-image: linear-gradient(
     90deg,
@@ -162,6 +194,19 @@ body {
   background: black;
   color: gray;
   border-right: 1px solid gray;
+}
+.filterSticky {
+  transition: background-color 1s;
+  color: lightgray !important;
+  border-radius: 10px;
+  background-image: none;
+  background-color: rgba(var(--skillColorRGB), 0.1);
+}
+.footer .filterSticky {
+  cursor: pointer;
+}
+.filterSticky_active {
+  background-color: rgba(var(--skillColorRGB), 0.4);
 }
 /* Positioning Stickies */
 .col00 {
