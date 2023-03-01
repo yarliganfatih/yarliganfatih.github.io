@@ -153,6 +153,16 @@ body {
 .hobbyContent .contentTag::before {
   content: "Hobby";
 }
+.content .filterSticky {
+  border-radius: 10px 15px 15px 10px;
+  text-align: right;
+  max-width: 90px;
+  width: 90px;
+}
+.content .filterSticky::after {
+  content: ' ○ ';
+  color: rgba(var(--skillColorRGB)) !important;
+}
 .experienceContent .contentTag {
   --skillColorRGB: var(--colorSchema3);
 }
@@ -176,6 +186,7 @@ body {
 }
 .skillSticky {
   max-height: 30px;
+  white-space: nowrap;
   border-radius: 15px;
   color: rgba(var(--skillColorRGB)) !important;
   border: 1px solid rgba(var(--skillColorRGB));
@@ -209,6 +220,9 @@ body {
   background-color: rgba(var(--skillColorRGB), 0.4);
 }
 /* Positioning Stickies */
+.content .skillSticky:not(:nth-child(2)){
+  margin-top: -30px;
+}
 .col00 {
   margin-left: 0px;
 }
