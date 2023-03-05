@@ -37,7 +37,14 @@ body {
   z-index: 10;
   border-radius: 30px 30px 0 0;
   backdrop-filter: blur(6px);
-  background: linear-gradient(to top, rgb(34, 34, 68), 25%, rgba(0, 0, 0, 0.4) 50%);
+  background: linear-gradient(
+    to top,
+    rgb(34, 34, 68),
+    25%,
+    rgba(0, 0, 0, 0.4) 50%
+  );
+  animation-name: footerOpening;
+  animation-duration: 600ms;
 }
 .nav {
   position: fixed;
@@ -49,8 +56,20 @@ body {
   z-index: 2;
   border-radius: 0 0 30px 30px;
   backdrop-filter: blur(6px);
-  background: linear-gradient(rgba(34, 34, 68, 1), 25%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.4) 75%);
+  background: linear-gradient(
+    rgba(34, 34, 68, 1),
+    25%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.4) 75%
+  );
   box-shadow: 0 2px 2px -2px rgb(34 34 68);
+  animation-name: navOpening;
+  animation-duration: 600ms;
+  animation-timing-function: ease-out;
+}
+.nav .container {
+  animation-name: innerNavOpening;
+  animation-duration: 1200ms;
 }
 .navBottomBorder {
   position: fixed;
@@ -60,6 +79,8 @@ body {
   width: 1140px;
   z-index: 9;
   box-shadow: 0 5px 20px 2px rgb(34 34 68);
+  animation-name: innerNavOpening;
+  animation-duration: 1200ms;
 }
 .fixedBio {
   height: 84px;
@@ -95,6 +116,11 @@ body {
   padding: 0;
 }
 
+.preMainParent {
+  width: 100%;
+  min-height: 150px;
+  background: black;
+}
 .mainParent {
   padding: 0 15px;
   height: 100%;
@@ -115,7 +141,6 @@ body {
 }
 .mainParent {
   height: calc(100% - 150px);
-  margin-top: 150px;
 }
 /* For inVisible Scrollbar */
 .mainParent {
@@ -160,7 +185,7 @@ body {
   width: 90px;
 }
 .content .filterSticky::after {
-  content: ' ○ ';
+  content: " ○ ";
   color: rgba(var(--skillColorRGB)) !important;
 }
 .experienceContent .contentTag {
@@ -220,7 +245,7 @@ body {
   background-color: rgba(var(--skillColorRGB), 0.4);
 }
 /* Positioning Stickies */
-.content .skillSticky:not(:nth-child(2)){
+.content .skillSticky:not(:nth-child(2)) {
   margin-top: -30px;
 }
 .col00 {
@@ -373,4 +398,32 @@ body {
 .animateShadowBottom {
   animation: insetShadowBottom 0.3s 2;
   animation-direction: alternate;
+}
+
+@keyframes navOpening {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 300px;
+  }
+}
+@keyframes footerOpening {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 60px;
+  }
+}
+@keyframes innerNavOpening {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

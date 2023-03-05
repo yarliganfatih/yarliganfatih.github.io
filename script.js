@@ -61,7 +61,7 @@ $(".footer .filterSticky").on('click', function () {
 });
 
 // scroll animations
-ScrollReveal().reveal('.innerContent', { container: $(".mainParent"), delay: 0, origin: 'left', distance: '30px', easing: 'ease-in'});
-ScrollReveal().reveal('.filterSticky', { container: $(".mainParent"), delay: 300, origin: 'right', distance: '30px', easing: 'ease-in', scale: 0.5});
-ScrollReveal().reveal('.bounceSticky', { container: $(".mainParent"), delay: 600, origin: 'top', distance: '30px', easing: 'ease-in', scale: 0.5});
+ScrollReveal().reveal('.innerContent', { container: $(".mainParent"), delay: 300, origin: 'left', distance: '30px', easing: 'ease-in'});
+ScrollReveal().reveal('.filterSticky', { container: $(".mainParent"), delay: 600, origin: 'right', distance: '30px', easing: 'ease-in', scale: 0.5});
+ScrollReveal().reveal('.bounceSticky', { container: $(".mainParent"), delay: 900, origin: 'top', distance: '30px', easing: 'ease-in', scale: 0.5});
 // TODO The first contents may come one by one => increasing delay param
