@@ -1,3 +1,6 @@
+html, body{
+  overflow: hidden;
+}
 :root {
   --skillColorRGB: 92, 84, 201;
   --skillScore: 5vh;
@@ -36,12 +39,11 @@ body {
   border-top: 5px solid rgb(34, 34, 68);
   z-index: 10;
   border-radius: 30px 30px 0 0;
-  backdrop-filter: blur(6px);
   background: linear-gradient(
     to top,
     rgb(34, 34, 68),
     25%,
-    rgba(0, 0, 0, 0.4) 50%
+    rgba(0, 0, 0, 1) 50%
   );
   animation-name: footerOpening;
   animation-duration: 600ms;
@@ -56,6 +58,7 @@ body {
   z-index: 2;
   border-radius: 0 0 30px 30px;
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   background: linear-gradient(
     rgba(34, 34, 68, 1),
     25%,
@@ -122,7 +125,7 @@ body {
   background: black;
 }
 .mainParent {
-  padding: 0 15px;
+  padding: 0 6px;
   height: 100%;
   width: 100%;
   background: black;
@@ -158,12 +161,16 @@ body {
   color: lightgray;
 }
 .colTitle {
-  width: 86px;
-  max-width: 86px;
-  min-width: 86px;
+  min-width: 83px;
+  max-width: 83px;
+  max-height: 30px;
   margin: 6px;
   text-align: center;
   color: lightgray;
+}
+.colTitle:first-child {
+  min-width: 74px;
+  max-width: 74px;
 }
 .colTitle:not(:first-child) {
   font-size: smaller;
@@ -181,8 +188,6 @@ body {
 .content .filterSticky {
   border-radius: 10px 15px 15px 10px;
   text-align: right;
-  max-width: 90px;
-  width: 90px;
 }
 .content .filterSticky::after {
   content: " ○ ";
@@ -237,12 +242,20 @@ body {
   border-radius: 10px;
   background-image: none;
   background-color: rgba(var(--skillColorRGB), 0.1);
+  max-width: 92px;
+  min-width: 92px;
 }
 .footer .filterSticky {
   cursor: pointer;
 }
 .filterSticky_active {
   background-color: rgba(var(--skillColorRGB), 0.4);
+}
+.filterSticky::before{
+  content: " ☐ ";
+}
+.filterSticky_active::before{
+  content: " ☑ ";
 }
 /* Positioning Stickies */
 .content .skillSticky:not(:nth-child(2)) {
@@ -255,55 +268,55 @@ body {
   top: 15px;
 }
 .col01 {
-  margin-left: 100px;
+  margin-left: 96px;
 }
 .row02 {
-  top: 60px;
+  top: 48px;
 }
 .col02 {
-  margin-left: 200px;
+  margin-left: 192px;
 }
 .row03 {
-  top: 105px;
+  top: 81px;
 }
 .col03 {
-  margin-left: 300px;
+  margin-left: 288px;
 }
 .row04 {
-  top: 150px;
+  top: 114px;
 }
 .col04 {
-  margin-left: 400px;
+  margin-left: 384px;
 }
 .row05 {
-  top: 195px;
+  top: 147px;
 }
 .col05 {
-  margin-left: 500px;
+  margin-left: 480px;
 }
 .row06 {
-  top: 240px;
+  top: 180px;
 }
 .col06 {
-  margin-left: 600px;
+  margin-left: 576px;
 }
 
 /* count of columns will be from 6 to 3 for Mobile */
 @media only screen and (max-width: 576px) {
   .col06 {
-    margin-left: 100px;
+    margin-left: 96px;
   }
   .row06 {
     top: 15px;
   }
   .col05 {
-    margin-left: 200px;
+    margin-left: 192px;
   }
   .row05 {
     top: 60px;
   }
   .col04 {
-    margin-left: 300px;
+    margin-left: 288px;
   }
   .row04 {
     top: 105px;
