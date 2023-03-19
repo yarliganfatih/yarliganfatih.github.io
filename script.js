@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 var lastScrolled = [];
 var lastAnimated = [];
 $(".mainParent").scroll(function () {
@@ -65,3 +67,14 @@ ScrollReveal().reveal('.innerContent', { container: $(".mainParent"), delay: 300
 ScrollReveal().reveal('.filterSticky', { container: $(".mainParent"), delay: 600, origin: 'right', distance: '30px', easing: 'ease-in', scale: 0.5});
 ScrollReveal().reveal('.bounceSticky', { container: $(".mainParent"), delay: 900, origin: 'top', distance: '30px', easing: 'ease-in', scale: 0.5});
 // TODO The first contents may come one by one => increasing delay param
+
+$(".read-more:not(.expanded)").each(function(){
+    $(this).append('<span class="trigger">+ read more</span>');
+
+});
+$(".read-more").click(function(){
+    $(this).addClass("expanded");
+});
+
+});
+

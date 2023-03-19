@@ -1,8 +1,10 @@
-html, body{
+html,
+body {
   overflow: hidden;
 }
 :root {
-  --skillColorRGB: 92, 84, 201;
+  --baseColorRGB: 92, 84, 201;
+  --skillColorRGB: 255, 186, 66;
   --skillScore: 5vh;
 
   /* Bright Colors Of Spring Color Scheme */
@@ -132,10 +134,10 @@ body {
 }
 @media only screen and (min-width: 1400px) {
   .mainParent {
-    padding: 0 35px;
+    padding: 0 18px;
   }
   .nav .container {
-    padding: 15px 35px;
+    padding: 15px 27px;
   }
 }
 /* Blank Area For Bio in Nav */
@@ -191,16 +193,16 @@ body {
 }
 .content .filterSticky::after {
   content: " ○ ";
-  color: rgba(var(--skillColorRGB)) !important;
+  color: rgba(var(--baseColorRGB)) !important;
 }
 .experienceContent .contentTag {
-  --skillColorRGB: var(--colorSchema3);
+  --skillColorRGB: var(--baseColorRGB);
 }
 .educationContent .contentTag {
-  --skillColorRGB: var(--colorSchema3);
+  --skillColorRGB: var(--baseColorRGB);
 }
 .hobbyContent .contentTag {
-  --skillColorRGB: var(--colorSchema3);
+  --skillColorRGB: var(--baseColorRGB);
 }
 .preSticky {
   display: block;
@@ -212,6 +214,12 @@ body {
 }
 .sticky {
   position: sticky;
+  z-index: 4;
+}
+.stickyPrimary {
+  z-index: 5;
+}
+.stickySecondary {
   z-index: 3;
 }
 .skillSticky {
@@ -241,7 +249,8 @@ body {
   color: lightgray !important;
   border-radius: 10px;
   background-image: none;
-  background-color: rgba(var(--skillColorRGB), 0.1);
+  background-color: rgba(var(--baseColorRGB), 0.1);
+  border: 1px solid rgba(var(--baseColorRGB));
   max-width: 92px;
   min-width: 92px;
 }
@@ -249,17 +258,23 @@ body {
   cursor: pointer;
 }
 .filterSticky_active {
-  background-color: rgba(var(--skillColorRGB), 0.4);
+  background-color: rgba(var(--baseColorRGB), 0.4);
 }
-.filterSticky::before{
+.filterSticky::before {
   content: " ☐ ";
 }
-.filterSticky_active::before{
+.filterSticky_active::before {
   content: " ☑ ";
 }
 /* Positioning Stickies */
-.content .skillSticky:not(:nth-child(2)) {
+.content {
+  margin-bottom: 30px;
+}
+.mainParent .skillSticky {
   margin-top: -30px;
+}
+.read-more:not(.expanded) {
+  margin-bottom: 38px;
 }
 .col00 {
   margin-left: 0px;
@@ -306,20 +321,23 @@ body {
   .col06 {
     margin-left: 96px;
   }
-  .row06 {
-    top: 15px;
-  }
   .col05 {
     margin-left: 192px;
-  }
-  .row05 {
-    top: 60px;
   }
   .col04 {
     margin-left: 288px;
   }
-  .row04 {
-    top: 105px;
+  :is(.col04, .col05, .col06).row01 {
+    top: 114px;
+  }
+  :is(.col04, .col05, .col06).row02 {
+    top: 81px;
+  }
+  :is(.col04, .col05, .col06).row03 {
+    top: 48px;
+  }
+  :is(.col04, .col05, .col06).row04 {
+    top: 15px;
   }
 }
 
@@ -439,4 +457,85 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+.nav .dateSticky {
+  width: 75px;
+}
+
+.contentRouter{
+  visibility: hidden;
+  position: relative;
+  top: -140px;
+}
+/*
+@media only screen and (max-width: 576px) {
+  .innerContent {
+    padding-left: 30px;
+    margin-top: 33.3px;
+  }
+  .dateSticky {
+    height: 33.3px;
+  }
+}
+*/
+
+/*
+@media only screen and (max-width: 576px) {
+  .innerContent {
+    padding-left: 60px;
+  }
+  .dateSticky {
+    width: 45px;
+  }
+  .nav .dateSticky {
+    width: 36px;
+  }
+}
+*/
+
+.read-more {
+  position: relative;
+  cursor: text;
+}
+.read-more .trigger {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  color: rgba(var(--baseColorRGB));
+  text-decoration: underline;
+}
+.read-more .textContent {
+  position: relative;
+  overflow: hidden;
+  max-height: 100px;
+  transition: max-height 500ms ease;
+}
+.read-more .textContent::before {
+  content: "";
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(0, 0, 0) 50%,
+    rgb(0, 0, 0) 100%
+  );
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  transition: opactiy 500ms ease, visibility 500ms ease;
+}
+@media only screen and (max-width: 576px) {
+  .read-more .textContent {
+    max-height: 350px;
+  }
+}
+.read-more.expanded .textContent {
+  max-height: 600px;
+}
+.read-more.expanded .textContent::before,
+.read-more.expanded .trigger {
+  opacity: 0;
+  visibility: hidden;
 }
