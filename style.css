@@ -270,7 +270,7 @@ body {
 .content {
   margin-bottom: 30px;
 }
-.mainParent .skillSticky {
+.mainParent .skillSticky:not(.contentTag) {
   margin-top: -30px;
 }
 .read-more:not(.expanded) {
@@ -463,10 +463,13 @@ body {
   width: 75px;
 }
 
-.contentRouter{
+.contentRouter {
   visibility: hidden;
   position: relative;
-  top: -140px;
+  top: -150px;
+}
+.contentRouter:not(:first-child) {
+  margin-top: 50px;
 }
 /*
 @media only screen and (max-width: 576px) {
@@ -523,7 +526,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 50px;
+  height: 45px;
   transition: opactiy 500ms ease, visibility 500ms ease;
 }
 @media only screen and (max-width: 576px) {
@@ -538,4 +541,34 @@ body {
 .read-more.expanded .trigger {
   opacity: 0;
   visibility: hidden;
+}
+
+.externalLinks {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  width: 84px;
+  text-align: right;
+}
+.externalLinks .linkBadge {
+  display: flex;
+  flex-direction: row-reverse;
+  border-radius: 6px;
+  min-width: 66px;
+  max-width: 84px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 1px solid #007bff;
+  margin-bottom: 6px;
+  padding: 0 4px;
+}
+.externalLinks .linkBadge span {
+  font-size: smaller;
+  padding: 2px 4px;
+  text-decoration: underline;
+}
+.externalLinks .linkBadge .fa {
+  border-left: 1px solid #007bff;
+  padding: 2px 4px;
+  max-width: 20px;
 }
