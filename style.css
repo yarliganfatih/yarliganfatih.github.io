@@ -206,6 +206,7 @@ body {
 }
 .preSticky {
   display: block;
+  overflow: hidden;
   width: 84px;
   padding: 4px;
   text-align: center;
@@ -535,7 +536,7 @@ body {
   }
 }
 .read-more.expanded .textContent {
-  max-height: 600px;
+  max-height: 10000px;
 }
 .read-more.expanded .textContent::before,
 .read-more.expanded .trigger {
@@ -569,6 +570,6 @@ body {
 }
 .externalLinks .linkBadge .fa {
   border-left: 1px solid #007bff;
-  padding: 2px 4px;
+  padding: 4px;
   max-width: 20px;
 }
